@@ -17,6 +17,18 @@ use JMS\Serializer\SerializerInterface;
  */
 class MerchantApi extends Api
 {
+
+    private static function getClient(Authorization $authorization)
+    {
+        return new Client(
+            [
+                'base_uri' => $authorization->getEndpoint(),
+                'headers' => [
+                    'User-Agent' => 'GuzzleHttp/6.3.3 curl/7.58.0 ( PHP/7.2.19-0ubuntu0.18.04.1 / 77769 | hardtofind. ) https://www.hardtofind.com.au/',
+                ]
+            ]);
+    }
+
     /**
      * @param Authorization            $authorization
      * @param Client|null              $client
@@ -31,7 +43,7 @@ class MerchantApi extends Api
     
         AnnotationRegistry::registerLoader('class_exists');
 
-        $afterpayClient = $client ? : new Client([ 'base_uri' => $authorization->getEndpoint() ]);
+        $afterpayClient = $client ? : self::getClient($authorization);
         $afterpaySerializer = $serializer ? : SerializerFactory::getSerializer();
 
         return new ConfigurationService($afterpayClient, $authorization, $afterpaySerializer);
@@ -51,7 +63,7 @@ class MerchantApi extends Api
     
         AnnotationRegistry::registerLoader('class_exists');
 
-        $afterpayClient = $client ? : new Client([ 'base_uri' => $authorization->getEndpoint() ]);
+        $afterpayClient = $client ? : self::getClient($authorization);
         $afterpaySerializer = $serializer ? : SerializerFactory::getSerializer();
 
         return new PaymentsService($afterpayClient, $authorization, $afterpaySerializer);
@@ -70,7 +82,7 @@ class MerchantApi extends Api
     ) {
         AnnotationRegistry::registerLoader('class_exists');
 
-        $afterpayClient = $client ? : new Client([ 'base_uri' => $authorization->getEndpoint() ]);
+        $afterpayClient = $client ? : self::getClient($authorization);
         $afterpaySerializer = $serializer ? : SerializerFactory::getSerializer();
 
         return new OrdersService($afterpayClient, $authorization, $afterpaySerializer);
