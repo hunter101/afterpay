@@ -29,16 +29,22 @@ class Authorization implements AuthorizationInterface
     protected $secret;
 
     /**
+     * @var string
+     */
+    protected $userAgent;
+
+    /**
      * Authorization constructor.
      * @param string      $endpoint
      * @param string|null $merchantId
      * @param string|null $secret
      */
-    public function __construct($endpoint, $merchantId = null, $secret = null)
+    public function __construct($endpoint, $merchantId = null, $secret = null, $userAgentString = null)
     {
         $this->setEndpoint($endpoint);
         $this->setMerchantId($merchantId);
         $this->setSecret($secret);
+        $this->setUserAgentString($useragentString);
     }
 
     /**
@@ -95,6 +101,24 @@ class Authorization implements AuthorizationInterface
     {
         $this->secret = $secret;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUserAgent()
+    {
+        return $this->userAgent;
+    }
+
+    /**
+     * @param string $userAgent
+     * @return $this
+     */
+    public function setUserAgent($userAgent)
+    {
+        $this->userAgent = $userAgent;
         return $this;
     }
 }

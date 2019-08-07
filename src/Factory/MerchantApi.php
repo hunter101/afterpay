@@ -24,7 +24,7 @@ class MerchantApi extends Api
             [
                 'base_uri' => $authorization->getEndpoint(),
                 'headers' => [
-                    'User-Agent' => 'GuzzleHttp/6.3.3 curl/7.58.0 ( PHP/7.2.19-0ubuntu0.18.04.1 / 77769 | hardtofind. ) https://www.hardtofind.com.au/',
+                    'User-Agent' => $authorization->getUserAgent()
                 ]
             ]);
     }
