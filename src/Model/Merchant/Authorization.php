@@ -44,7 +44,7 @@ class Authorization implements AuthorizationInterface
         $this->setEndpoint($endpoint);
         $this->setMerchantId($merchantId);
         $this->setSecret($secret);
-        $this->setUserAgentString($useragentString);
+        $this->setUserAgent($userAgentString);
     }
 
     /**
