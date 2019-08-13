@@ -63,6 +63,27 @@ class OrderDetails
      */
     protected $merchantReference;
 
+    /*
+     * @var Model\Custom
+     */
+    protected $custom;
+
+    /**
+     * @return Model\Custom
+     */
+    public function getCustom()
+    {
+        return $this->custom;
+    }
+
+    /**
+     * @param Model\Custom $custom
+     */
+    public function setCustom(Model\Custom $custom)
+    {
+        $this->custom = $custom;
+    }
+
     /**
      * @return Consumer
      */
