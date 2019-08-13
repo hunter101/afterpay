@@ -1,5 +1,7 @@
 CultureKings\Afterpay\Model\Merchant\OrderDetails:
   properties:
+    custom:
+      type: CultureKings\Afterpay\Model\Custom
     consumer:
       type: CultureKings\Afterpay\Model\Merchant\Consumer
     billing:

@@ -18,7 +18,7 @@ class Custom
      * Custom constructor.
      * @param string $sellerId
      */
-    public function __construct($sellerId = null)
+    public function __construct($sellerId = "")
     {
         $this->setSellerId($sellerId);
     }
@@ -35,7 +35,7 @@ class Custom
      * @param string $sellerId
      * @return $this
      */
-    public function setSellerId(string $sellerId)
+    public function setSellerId(string $sellerId = "")
     {
         $this->sellerId = $sellerId;
 

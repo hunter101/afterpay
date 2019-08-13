@@ -63,7 +63,7 @@ class OrderDetails
      */
     protected $merchantReference;
 
-    /*
+    /**
      * @var Model\Custom
      */
     protected $custom;
@@ -77,11 +77,14 @@ class OrderDetails
     }
 
     /**
+     * @return $this
      * @param Model\Custom $custom
      */
     public function setCustom(Model\Custom $custom)
     {
         $this->custom = $custom;
+
+        return $this;
     }
 
     /**

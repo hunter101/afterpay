@@ -1,0 +1,4 @@
+CultureKings\Afterpay\Model\Custom:
+  properties:
+    sellerId:
+      type: string
